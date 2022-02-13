@@ -15,8 +15,9 @@ import { MatTableModule } from '@angular/material/table';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { JokesListComponent } from './jokes-list/jokes-list.component';
+import { JokeModalComponent } from './components/joke-modal/joke-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { JokesListComponent } from './jokes-list/jokes-list.component';
     LoginComponent,
     RegisterComponent,
     DialogComponent,
-    JokesListComponent
+    JokesListComponent,
+    JokeModalComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { JokesListComponent } from './jokes-list/jokes-list.component';
     HttpClientModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

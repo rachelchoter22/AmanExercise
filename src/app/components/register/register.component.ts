@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
-import { AuthenticationService } from 'src/app/services/AuthenticationService';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'register',

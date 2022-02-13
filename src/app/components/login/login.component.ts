@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/AuthenticationService';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'login',
@@ -27,8 +27,10 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    if (this.authenticationService
-      .login(this.formControls.username.value, this.formControls.password.value)) {
+    let isLogedin = this.authenticationService
+      .login(this.formControls.username.value, this.formControls.password.value);
+
+    if (isLogedin) {
       this.router.navigate(['/jokes-list']);
     }
   }

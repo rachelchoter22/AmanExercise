@@ -8,23 +8,17 @@ import { UsersService } from "./UsersService";
 export class AuthenticationService {
 
     private currentUser$: BehaviorSubject<User>;
-    // public currentUser: User;
 
     constructor(private http: HttpClient,
         private usersService: UsersService) {
 
         let userObject;
-        // let userJson = <User>{ username: '', password: '', email: '' };
+
         if (localStorage.getItem('currentUser')) {
             userObject = JSON.parse(localStorage.getItem('currentUser') || '');
         }
-        // else {
-        //     userObject = <User>{};
-
-        // }
 
         this.currentUser$ = new BehaviorSubject<User>(userObject);
-        // this.currentUser = this.currentUserSubject.asObservable();
     }
     public get currentUserValue(): User {
         return this.currentUser$.value;

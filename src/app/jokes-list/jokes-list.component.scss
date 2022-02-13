@@ -1,5 +1,17 @@
+.jokes-grid {
+    display: grid;
+    grid-template-areas: "header" "table";
+    gap: 1.5rem;
+    grid-auto-columns: 1fr;
+}
 table {
-    td,th {
+    grid-area: table;
+    margin: 1rem;
+    td,
+    th {
         padding-left: 4rem;
     }
+}
+header {
+    grid-area: header;
 }

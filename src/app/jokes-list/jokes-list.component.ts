@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { JokeModalComponent } from '../components/joke-modal/joke-modal.component';
 import { Joke } from '../models/joke.model';
 import { JokesService } from '../services/jokes.service';
 
@@ -13,6 +15,7 @@ export class JokesListComponent implements OnInit {
   clickedRows = new Set<Joke>();
 
   constructor(private jokesService: JokesService,
+    public dialog: MatDialog
     ) { }
 
   ngOnInit(): void {
@@ -22,7 +25,13 @@ export class JokesListComponent implements OnInit {
       });
   }
   getRecord(row:any) {
-    console.log(row)
+   
+
+    let dialogRef = this.dialog.open(JokeModalComponent, {
+      height: '400px',
+      width: '600px',
+      data: row
+    });
 
   }
 }

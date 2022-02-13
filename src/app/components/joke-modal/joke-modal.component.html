@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>{{data.setup}}</h1>
+<div mat-dialog-content>
+    <p>Type : {{data.type}}</p>
+    <p>category : {{data.category}}</p>
+    <p>Id : {{data.id}}</p>
+    <!-- <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <input matInput [(ngModel)]="data.category">
+  </mat-form-field> -->
+</div>
+
+<div mat-dialog-content>
+    <p>Random Joke:</p>
+    <p>Type : {{data.type}}</p>
+    <p>category : {{data.category}}</p>
+    <p>Id : {{data.id}}</p>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <input matInput [(ngModel)]="data.category">
+    </mat-form-field> -->
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+    <button mat-button [mat-dialog-close]="data.error" cdkFocusInitial>Ok</button>
+</div>
