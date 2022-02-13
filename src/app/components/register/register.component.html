@@ -1,0 +1,21 @@
+<div class="form-wrapper">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+        <div>
+            <mat-form-field class="">
+                <input formControlName="username" matInput placeholder="User Name">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="">
+                <input formControlName="email" matInput placeholder="Email">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="">
+                <input formControlName="password" matInput placeholder="Password">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Register</button>
+    </form>
+</div>
