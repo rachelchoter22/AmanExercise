@@ -8,6 +8,9 @@
     <div>
         <mat-form-field class="">
             <input formControlName="password" matInput placeholder="Password">
+            <mat-error *ngIf="formControls.password.errors.required">Field is required</mat-error>
+            <!-- <mat-error *ngIf="formControls.password.errors.minLength">len</mat-error> -->
+
         </mat-form-field>
     </div>
     <button mat-raised-button color="primary" type="submit">Login</button>

@@ -1,3 +1,14 @@
 .login-or-register {
-    display: flex;
+    display: grid;
+    grid-template-areas: "login register";
+    grid-auto-columns: 1fr;
+    gap: 1rem;
+}
+
+register {
+    grid-area: register;
+}
+login {
+    grid-area: login;
+    border-right: 1px solid black;
 }

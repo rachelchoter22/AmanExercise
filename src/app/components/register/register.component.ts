@@ -13,8 +13,6 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class RegisterComponent implements OnInit {
   registerForm: any;
-  loading = false;
-  submitted = false;
 
   constructor(private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
