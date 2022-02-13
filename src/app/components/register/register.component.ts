@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'register',
@@ -16,7 +18,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router) { }
+    private router: Router,
+    public dialogRef: MatDialogRef<DialogComponent>) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -36,7 +39,9 @@ export class RegisterComponent implements OnInit {
       username: this.formControls.username.value
     }
     let isRegist = this.authenticationService.register(user);
-    if (isRegist)
+    if (isRegist) {
+      this.dialogRef.close();
       this.router.navigate(['/jokes-list']);
+    }
   }
 }

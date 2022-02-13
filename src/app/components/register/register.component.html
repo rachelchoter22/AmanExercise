@@ -4,16 +4,21 @@
         <div>
             <mat-form-field class="">
                 <input formControlName="username" matInput placeholder="User Name">
+                <mat-error *ngIf="formControls.username.errors.required">Field is required</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="">
                 <input formControlName="email" matInput placeholder="Email">
+                <mat-error *ngIf="formControls.email.errors.required">Field is required</mat-error>
+
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="">
                 <input formControlName="password" matInput placeholder="Password">
+                <mat-error *ngIf="formControls.password.errors.required">Field is required</mat-error>
+
             </mat-form-field>
         </div>
         <button mat-raised-button color="primary" type="submit">Register</button>

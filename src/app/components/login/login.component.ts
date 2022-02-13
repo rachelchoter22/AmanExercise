@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'login',
@@ -14,7 +16,8 @@ export class LoginComponent implements OnInit {
   submitted = false;
   constructor(private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router) { }
+    private router: Router,
+    public dialogRef: MatDialogRef<DialogComponent>) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -31,6 +34,7 @@ export class LoginComponent implements OnInit {
       .login(this.formControls.username.value, this.formControls.password.value);
 
     if (isLogedin) {
+      this.dialogRef.close();
       this.router.navigate(['/jokes-list']);
     }
   }

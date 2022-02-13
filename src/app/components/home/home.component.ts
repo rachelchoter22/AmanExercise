@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
       let dialogRef = this.dialog.open(DialogComponent, {
         height: '400px',
         width: '600px',
+        closeOnNavigation:true
       });
     }
     else {

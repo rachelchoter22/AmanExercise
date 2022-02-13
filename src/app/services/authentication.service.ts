@@ -20,6 +20,7 @@ export class AuthenticationService {
 
         this.currentUser$ = new BehaviorSubject<User>(userObject);
     }
+
     public get currentUserValue(): User {
         return this.currentUser$.value;
     }
@@ -31,9 +32,11 @@ export class AuthenticationService {
 
         return false;
     }
+
     logout() {
         localStorage.removeItem('currentUser');
     }
+    
     register(user: User) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         return true;

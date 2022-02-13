@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { JokeModalComponent } from '../components/joke-modal/joke-modal.component';
-import { Joke } from '../models/joke.model';
-import { JokesService } from '../services/jokes.service';
+import { JokeModalComponent } from '../joke-modal/joke-modal.component';
+import { Joke } from '../../models/joke.model';
+import { JokesService } from '../../services/jokes.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { DialogComponent } from '../dialog/dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jokes-list',
@@ -15,17 +18,24 @@ export class JokesListComponent implements OnInit {
   clickedRows = new Set<Joke>();
 
   constructor(private jokesService: JokesService,
-    public dialog: MatDialog
-    ) { }
+    public dialog: MatDialog,
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    if (!this.authenticationService.currentUserValue) {
+      this.router.navigate(['/'])
+
+      return;
+    }
     this.jokesService.getJokes()
       .subscribe(res => {
         this.dataSource = res;
       });
   }
-  getRecord(row:any) {
-   
+  getRecord(row: any) {
+
 
     let dialogRef = this.dialog.open(JokeModalComponent, {
       height: '400px',

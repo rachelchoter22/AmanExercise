@@ -16,7 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ReactiveFormsModule , FormsModule} from '@angular/forms';
-import { JokesListComponent } from './jokes-list/jokes-list.component';
+import { JokesListComponent } from './components/jokes-list/jokes-list.component';
 import { JokeModalComponent } from './components/joke-modal/joke-modal.component';
 
 @NgModule({
